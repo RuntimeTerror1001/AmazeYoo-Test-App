@@ -1,5 +1,4 @@
 import 'package:amazeyoo_test_app/Screens/home_screen.dart';
-import 'Screens/description_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +10,9 @@ class AmazeYooTestApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DescriptionScreen(),
+      home: HomeScreen(),
     );
   }
 }

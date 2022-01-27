@@ -18,9 +18,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final String apiKey = 'e87b2f0e609feaa84404a5d956e01fe4';
-  final String readAccessToken =
-      'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlODdiMmYwZTYwOWZlYWE4NDQwNGE1ZDk1NmUwMWZlNCIsInN1YiI6IjYxZjBlMzljMWFkOTNiMDA0MzEyYTczMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Isfsu_cEODsRx6RTl9mgzv7EhC3u0xA-Qqc1SwfQszA';
   List trendingMovies = [];
   List recentWatched = [];
   List myFav = [];
@@ -62,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     children: [
                       const CircleAvatar(
                         radius: 25,
+                        backgroundImage: AssetImage('assets/avatar.png'),
                       ),
                       const SizedBox(width: 15),
                       Column(
@@ -125,14 +123,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         activeSize: Size.fromRadius(3)),
                   ),
                 ),
-                const subHead(text: 'Recent Watched'),
+                const SubHead(text: 'Recent Watched'),
                 RecentView(refList: recentWatched),
-                const subHead(text: 'My Favourites'),
+                const SubHead(text: 'My Favourites'),
                 RecentView(refList: myFav),
+                const SizedBox(height: 75)
               ],
             ),
           ),
-          bottomAppBar()
+          const bottomAppBar()
         ]),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:amazeyoo_test_app/Screens/description_screen.dart';
 import 'package:amazeyoo_test_app/vars_consts.dart';
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,22 @@ class TrendingView extends StatelessWidget {
                         fit: BoxFit.fill)),
                 child: Center(
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DescriptionScreen(
+                                    name: trending[index]['title'],
+                                    description: trending[index]['overview'],
+                                    posterURL:
+                                        'https://image.tmdb.org/t/p/w500' +
+                                            trending[index]['backdrop_path'],
+                                    launchDate: trending[index]['release_date'],
+                                    vote: trending[index]['vote_average'],
+                                    popularity: trending[index]['popularity'],
+                                    movieID: trending[index]['id'],
+                                  )));
+                    },
                     child: Container(
                       height: 35,
                       width: 35,

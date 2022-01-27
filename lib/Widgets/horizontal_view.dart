@@ -1,3 +1,4 @@
+import 'package:amazeyoo_test_app/Screens/description_screen.dart';
 import 'package:flutter/material.dart';
 
 class RecentView extends StatelessWidget {
@@ -16,9 +17,23 @@ class RecentView extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DescriptionScreen(
+                                name: refList[index]['title'],
+                                description: refList[index]['overview'],
+                                posterURL: 'https://image.tmdb.org/t/p/w500' +
+                                    refList[index]['backdrop_path'],
+                                launchDate: refList[index]['release_date'],
+                                vote: refList[index]['vote_average'],
+                                popularity: refList[index]['popularity'],
+                                movieID: refList[index]['id'],
+                              )));
+                },
                 child: Container(
-                  width: 120,
+                  width: 100,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       image: DecorationImage(
