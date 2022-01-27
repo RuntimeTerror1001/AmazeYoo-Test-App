@@ -2,7 +2,7 @@ import 'package:amazeyoo_test_app/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(AmazeYooTestApp());
+  runApp(const AmazeYooTestApp());
 }
 
 class AmazeYooTestApp extends StatelessWidget {

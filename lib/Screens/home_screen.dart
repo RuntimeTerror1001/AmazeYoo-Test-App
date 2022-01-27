@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List recentWatched = [];
   List myFav = [];
 
+  //Get Data from API
   loadMovies() async {
     TMDB tmdbCustomLogs = TMDB(ApiKeys(apiKey, readAccessToken),
         logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true));
@@ -52,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
           SingleChildScrollView(
             child: Column(
               children: [
+                //AppBar
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       vertical: 15.0, horizontal: 15.0),
@@ -83,6 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+                //Categories
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
@@ -99,7 +102,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
+                //List - Trending Movies
                 TrendingView(trending: trendingMovies),
+                //MidText
                 Center(
                   child: Text(
                     'Episode 1',
@@ -112,6 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: kHeadText,
                   ),
                 ),
+                //Dots Indicator
                 const Center(
                   child: DotsIndicator(
                     dotsCount: 3,
@@ -123,9 +129,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         activeSize: Size.fromRadius(3)),
                   ),
                 ),
+                //Heading - Recent Watched
                 const SubHead(text: 'Recent Watched'),
+                //List - Recent Watched
                 RecentView(refList: recentWatched),
+                //Heading - My Favourites
                 const SubHead(text: 'My Favourites'),
+                //List - My Favourites
                 RecentView(refList: myFav),
                 const SizedBox(height: 75)
               ],

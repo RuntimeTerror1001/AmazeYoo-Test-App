@@ -20,6 +20,7 @@ class RecentView extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                       context,
+                      //Navigate to Description Screen
                       MaterialPageRoute(
                           builder: (context) => DescriptionScreen(
                                 name: refList[index]['title'],

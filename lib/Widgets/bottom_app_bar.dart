@@ -21,6 +21,7 @@ class bottomAppBar extends StatelessWidget {
                 topRight: Radius.circular(8),
                 bottomRight: Radius.circular(25),
                 bottomLeft: Radius.circular(25))),
+        //Icons Row
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [

@@ -32,6 +32,7 @@ class DescriptionScreen extends StatefulWidget {
 class _DescriptionScreenState extends State<DescriptionScreen> {
   List credits = [];
 
+  //Get Data from API
   loadCredits() async {
     TMDB tmdbCustomLogs = TMDB(ApiKeys(apiKey, readAccessToken),
         logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true));
@@ -62,7 +63,8 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
               child: SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children:[
+                    //Poster Image Container
                     Container(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height * 0.60,
@@ -76,6 +78,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          //Upper Buttons
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 vertical: 30, horizontal: 20),
@@ -92,11 +95,14 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                               ],
                             ),
                           ),
+                          //Movie Details
                           Column(
                             children: [
+                              //Text - Movie Name
                               Text(widget.name ?? 'TBA',
                                   style: kHeadText.copyWith(fontSize: 30),
                                   textAlign: TextAlign.center),
+                              //Containers Row - Movie Details
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -116,14 +122,24 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         ],
                       ),
                     ),
+                    //Text - Movie + Time
                     Padding(
-                      padding: const EdgeInsets.only(left: 15, top: 10),
-                      child: Text('Movie',
-                          style: kLightText.copyWith(
-                              fontSize: 13,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white)),
+                      padding:
+                          const EdgeInsets.only(left: 15, top: 10, right: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Movie',
+                              style: kLightText.copyWith(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white)),
+                          Text('120 min',
+                              style: kLightText.copyWith(fontSize: 13))
+                        ],
+                      ),
                     ),
+                    //Linear Progress Indicator
                     const Padding(
                       padding: EdgeInsets.only(
                           left: 15, right: 15, top: 8, bottom: 30),
@@ -133,6 +149,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         value: 0.5,
                       ),
                     ),
+                    //Button - Continue Watch
                     Center(
                       child: Container(
                         height: 60,
@@ -148,7 +165,9 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                       ),
                     ),
                     const SizedBox(height: 15),
+                    //Heading - The Cast
                     const SubHead(text: 'The Cast'),
+                    //List - The Cast
                     credits.isEmpty || credits == null
                         ? Padding(
                             padding: const EdgeInsets.all(15.0),
@@ -158,12 +177,14 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                             ),
                           )
                         : CastView(castList: credits),
+                    //Heading - Synopsis
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 15, vertical: 15),
                       child: Text('Synopsis',
                           style: kHeadText.copyWith(fontSize: 18)),
                     ),
+                    //Text - Synopsis
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: Text('${widget.description}',

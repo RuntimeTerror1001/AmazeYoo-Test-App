@@ -34,6 +34,7 @@ class TrendingView extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                           context,
+                          //Navigate to Description Screen
                           MaterialPageRoute(
                               builder: (context) => DescriptionScreen(
                                     name: trending[index]['title'],
@@ -47,6 +48,7 @@ class TrendingView extends StatelessWidget {
                                     movieID: trending[index]['id'],
                                   )));
                     },
+                    //Center - Play Button
                     child: Container(
                       height: 35,
                       width: 35,
